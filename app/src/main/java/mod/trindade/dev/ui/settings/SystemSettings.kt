@@ -52,24 +52,16 @@ class SystemSettings : ComponentActivity() {
     fun getPreferences(): List<SwitchPreference> {
         return listOf(
             SwitchPreference(
-                name = stringResource(R.string.system_settings_title_setting_vibration),
-                description = stringResource(R.string.system_settings_description_setting_vibration),
-                id = 0,
-                default = true,
-                onChange = { isChecked ->
-                    val sharedPreferences = getSharedPreferences("P12", Context.MODE_PRIVATE)
-                    sharedPreferences.edit().putBoolean("P12I0", isChecked).apply()
-                }
+                preference_name = stringResource(R.string.system_settings_title_setting_vibration),
+                preference_description = stringResource(R.string.system_settings_description_setting_vibration),
+                preference_id = 0,
+                preference_default_value = true
             ),
             SwitchPreference(
-                name = stringResource(R.string.system_settings_title_automatically_save),
-                description = stringResource(R.string.system_settings_description_automatically_save),
-                id = 0,
-                default = false,
-                onChange = { isChecked ->
-                    val sharedPreferences = getSharedPreferences("P12", Context.MODE_PRIVATE)
-                    sharedPreferences.edit().putBoolean("P12I2", isChecked).apply()
-                }
+                preference_name = stringResource(R.string.system_settings_title_automatically_save),
+                preference_description = stringResource(R.string.system_settings_description_automatically_save),
+                preference_id = 1,
+                preference_default_value = false
             )
         )
     }
@@ -77,6 +69,7 @@ class SystemSettings : ComponentActivity() {
     @Composable
     fun Content() {
         val preferences = getPreferences()
+        val sharedPreferences = getSharedPreferences("P12", Context.MODE_PRIVATE)
 
         Column(
             modifier = Modifier
@@ -85,11 +78,13 @@ class SystemSettings : ComponentActivity() {
         ) {
             preferences.forEach { preference ->
                 SwitchPreferenceLayout(
-                    name = preference.name,
-                    description = preference.description,
-                    id = preference.id,
-                    default = preference.default,
-                    onChange = preference.onChange
+                    name = preference.preference_name,
+                    description = preference.preference_description,
+                    id = preference.preference_id,
+                    default = sharedPreferences.getBoolean("P12I${preference.preference_id}", preference.preference_default_value),
+                    onChange = { isChecked ->
+                        sharedPreferences.edit().putBoolean("P12I${preference.preference_id}", isChecked).apply()
+                    }
                 )
             }
         }

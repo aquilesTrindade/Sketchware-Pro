@@ -28,7 +28,6 @@ fun SwitchPreferenceLayout(
     default: Boolean,
     onChange: (isChecked: Boolean) -> Unit
 ) {
-    
     var switchState by remember { mutableStateOf(default) }
 
     Column(
@@ -51,6 +50,7 @@ fun SwitchPreferenceLayout(
                     maxLines = 1
                 )
             }
+            Spacer(modifier = Modifier.weight(1f))
             Switch(
                 checked = switchState,
                 onCheckedChange = { isChecked ->
