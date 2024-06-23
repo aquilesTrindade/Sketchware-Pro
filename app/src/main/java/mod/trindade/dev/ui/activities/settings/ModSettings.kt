@@ -1,4 +1,4 @@
-package mod.trindade.dev.ui.settings
+package mod.trindade.dev.ui.activities.settings
 
 import android.*
 import android.os.*
@@ -32,7 +32,7 @@ import mod.trindade.dev.ui.preferences.*
 
 import com.sketchware.remod.R
 
-class SystemSettings : ComponentActivity() {
+class ModSettings : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

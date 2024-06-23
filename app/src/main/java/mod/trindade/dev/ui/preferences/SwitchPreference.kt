@@ -17,7 +17,8 @@ data class SwitchPreference(
     val preference_name: String,
     val preference_description: String,
     val preference_id: Int,
-    val preference_default_value: Boolean
+    val preference_default_value: Boolean,
+    val onChange: (isChecked: Boolean) -> Unit
 )
 
 @Composable
@@ -34,7 +35,9 @@ fun SwitchPreferenceLayout(
         modifier = Modifier.padding(5.dp)
     ) {
         Row(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 8.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Column {
