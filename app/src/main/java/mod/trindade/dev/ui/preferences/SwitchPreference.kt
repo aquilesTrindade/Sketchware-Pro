@@ -3,7 +3,7 @@ package mod.trindade.dev.ui.preferences
 import android.content.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.*
-import androidx.compose.material.icons.Icons.*
+import androidx.compose.material.icons.*
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -21,7 +21,7 @@ data class SwitchPreference(
 )
 
 @Composable
-fun SwitchPreference(
+fun SwitchPreferenceLayout(
     name: String,
     description: String,
     id: Int,
@@ -29,7 +29,7 @@ fun SwitchPreference(
     onChange: (isChecked: Boolean) -> Unit
 ) {
     
-    var switchState by remember { mutableStateOf(savedValue) }
+    var switchState by remember { mutableStateOf(default) }
 
     Column(
         modifier = Modifier.padding(5.dp)
@@ -41,13 +41,13 @@ fun SwitchPreference(
             Column {
                 Text(
                     text = name,
-                    style = MaterialTheme.typography.body1,
+                    style = MaterialTheme.typography.bodyMedium,
                     fontWeight = FontWeight.Bold,
                     maxLines = 1
                 )
                 Text(
                     text = description,
-                    style = MaterialTheme.typography.body2,
+                    style = MaterialTheme.typography.bodySmall,
                     maxLines = 1
                 )
             }

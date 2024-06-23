@@ -33,12 +33,5 @@ val TrindadeWareTypography = Typography(
         fontSize = 14.sp,
         lineHeight = 24.sp,
         letterSpacing = 0.5.sp
-    ),
-    bodyVerySmall = TextStyle(
-        fontFamily = gilroyFontFamily,
-        fontWeight = FontWeight.Normal,
-        fontSize = 10.sp,
-        lineHeight = 24.sp,
-        letterSpacing = 0.5.sp
     )
 )

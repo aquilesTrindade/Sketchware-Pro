@@ -1,6 +1,8 @@
 package mod.trindade.dev.ui.settings
 
-import android.os.Bundle
+import android.*
+import android.os.*
+import android.content.*
 
 import androidx.activity.*
 import androidx.navigation.*
@@ -52,7 +54,7 @@ class SystemSettings : ComponentActivity() {
             SwitchPreference(
                 name = stringResource(R.string.system_settings_title_setting_vibration),
                 description = stringResource(R.string.system_settings_description_setting_vibration),
-                id = "P12I0", 
+                id = 0,
                 default = true,
                 onChange = { isChecked ->
                     val sharedPreferences = getSharedPreferences("P12", Context.MODE_PRIVATE)
@@ -62,7 +64,7 @@ class SystemSettings : ComponentActivity() {
             SwitchPreference(
                 name = stringResource(R.string.system_settings_title_automatically_save),
                 description = stringResource(R.string.system_settings_description_automatically_save),
-                id = "P12I2", 
+                id = 0,
                 default = false,
                 onChange = { isChecked ->
                     val sharedPreferences = getSharedPreferences("P12", Context.MODE_PRIVATE)
@@ -82,7 +84,7 @@ class SystemSettings : ComponentActivity() {
                 .padding(8.dp)
         ) {
             preferences.forEach { preference ->
-                SwitchPreference(
+                SwitchPreferenceLayout(
                     name = preference.name,
                     description = preference.description,
                     id = preference.id,
