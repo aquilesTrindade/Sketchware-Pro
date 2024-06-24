@@ -312,10 +312,10 @@
             
         <!-- Compose activities  -->
         <activity
-            android:name="mod.trindade.dev.ui.activities.settings.system.SystemSettingsActivity" />
+            android:name="mod.trindade.dev.ui.activities.settings.SystemSettings" />
             
         <activity
-            android:name="mod.trindade.dev.ui.activities.settings.mod.ModSettingsActivity" />    
+            android:name="mod.trindade.dev.ui.activities.settings.ModSettings" />    
 
         <meta-data
             android:name="firebase_crashlytics_collection_enabled"
