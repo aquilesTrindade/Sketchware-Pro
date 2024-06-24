@@ -21,6 +21,12 @@ data class SwitchPreference(
     val onChange: (isChecked: Boolean) -> Unit
 )
 
+data class Preference (
+    val preference_name: String,
+    val preference_description: String,
+    val preference_id: Int,
+    val onClick: () -> Unit
+)    
 @Composable
 fun SwitchPreferenceLayout(
     name: String,
