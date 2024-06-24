@@ -31,6 +31,7 @@ import mod.ilyasse.activities.about.AboutModActivity;
 import mod.trindade.dev.ui.activities.settings.*;
 
 public class MainDrawer extends NavigationView {
+
     private static final int DEF_STYLE_RES = R.style.MainDrawer;
 
     public MainDrawer(@NonNull Context context) {
@@ -57,7 +58,7 @@ public class MainDrawer extends NavigationView {
         setNavigationItemSelectedListener(item -> {
             initializeSocialLinks(item.getItemId());
             initializeDrawerItems(item.getItemId());
-
+            initializeTrindadeWareItems(item.getItemId());
             // Return false to prevent selection
             return false;
         });
@@ -111,7 +112,7 @@ public class MainDrawer extends NavigationView {
         }
     }
     
-    private void initializeTrindadeWareItens(@IdRes id) {
+    private void initializeTrindadeWareItems(@IdRes int id) {
         Activity activity = unwrap(getContext());
         if (id == R.id.mod_settings) {
             Intent intent = new Intent(activity, ModSettings.class);
