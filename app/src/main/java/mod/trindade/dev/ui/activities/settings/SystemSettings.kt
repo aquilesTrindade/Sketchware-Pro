@@ -41,9 +41,6 @@ class SystemSettings : ComponentActivity() {
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
                     content = {
-                        topAppBarLarge(
-                            title = "System Settings"
-                        )    
                         Content()
                     }
                 )
@@ -83,17 +80,24 @@ class SystemSettings : ComponentActivity() {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(8.dp)
         ) {
-            preferences.forEach { preference ->
-                SwitchPreferenceLayout(
-                    name = preference.preference_name,
-                    description = preference.preference_description,
-                    id = preference.preference_id,
-                    default = preference.preference_default_value,
-                    onChange = preference.onChange
-                )
+            topAppBarLarge(
+               title = "System Settings"
+            )
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(8.dp)
+            ) {
+                preferences.forEach { preference ->
+                    SwitchPreferenceLayout(
+                        name = preference.preference_name,
+                        description = preference.preference_description,
+                        id = preference.preference_id,
+                        default = preference.preference_default_value,
+                        onChange = preference.onChange
+                    )
+                }
             }
         }
     }
-}
