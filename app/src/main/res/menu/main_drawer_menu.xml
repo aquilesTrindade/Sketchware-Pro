@@ -48,5 +48,15 @@
                 android:title="GitHub" />
         </menu>
     </item>
+    
+    <item android:title="TrindadeWare" >
+        <menu>
+           <item 
+              android:id="@+id/mod_settings"
+              android:icon="@drawable/ic_settings_24"
+              android:title="Mod Settings" />
+        </menu>
+    </item>
+       
 
 </menu>

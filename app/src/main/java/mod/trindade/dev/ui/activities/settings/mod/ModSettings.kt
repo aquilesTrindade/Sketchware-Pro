@@ -1,4 +1,4 @@
-package mod.trindade.dev.ui.activities.settings
+package mod.trindade.dev.ui.activities.settings.mod
 
 import android.*
 import android.os.*
@@ -32,23 +32,7 @@ import mod.trindade.dev.ui.preferences.*
 
 import com.sketchware.remod.R
 
-class ModSettings : ComponentActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            TrindadeWareTheme {
-                Scaffold(
-                    modifier = Modifier.fillMaxSize(),
-                    content = {
-                        Content()
-                    }
-                )
-            }
-        }
-    }
-
-    @Composable
+@Composable
     fun getPreferences(sharedPreferences: SharedPreferences): List<SwitchPreference> {
         return listOf(
             SwitchPreference(
@@ -80,17 +64,24 @@ class ModSettings : ComponentActivity() {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(8.dp)
         ) {
-            preferences.forEach { preference ->
-                SwitchPreferenceLayout(
-                    name = preference.preference_name,
-                    description = preference.preference_description,
-                    id = preference.preference_id,
-                    default = preference.preference_default_value,
-                    onChange = preference.onChange
-                )
+            topAppBarLarge(
+               title = "Mod Settings"
+            )
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(8.dp)
+            ) {
+                preferences.forEach { preference ->
+                    SwitchPreferenceLayout(
+                        name = preference.preference_name,
+                        description = preference.preference_description,
+                        id = preference.preference_id,
+                        default = preference.preference_default_value,
+                        onChange = preference.onChange
+                    )
+                }
             }
         }
     }
-}

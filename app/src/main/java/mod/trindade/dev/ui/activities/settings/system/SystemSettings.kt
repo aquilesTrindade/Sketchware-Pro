@@ -1,4 +1,4 @@
-package mod.trindade.dev.ui.activities.settings
+package mod.trindade.dev.ui.activities.settings.system
 
 import android.*
 import android.os.*
@@ -32,23 +32,7 @@ import mod.trindade.dev.ui.preferences.*
 
 import com.sketchware.remod.R
 
-class SystemSettings : ComponentActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            TrindadeWareTheme {
-                Scaffold(
-                    modifier = Modifier.fillMaxSize(),
-                    content = {
-                        Content()
-                    }
-                )
-            }
-        }
-    }
-
-    @Composable
+@Composable
     fun getPreferences(sharedPreferences: SharedPreferences): List<SwitchPreference> {
         return listOf(
             SwitchPreference(

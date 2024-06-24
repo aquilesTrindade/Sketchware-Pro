@@ -28,7 +28,8 @@ import dev.chrisbanes.insetter.Side;
 import mod.hilal.saif.activities.tools.Tools;
 import mod.ilyasse.activities.about.AboutModActivity;
 
-import mod.trindade.dev.ui.activities.settings.*;
+import mod.trindade.dev.ui.activities.settings.system.*;
+import mod.trindade.dev.ui.activities.settings.mod.*;
 
 public class MainDrawer extends NavigationView {
     private static final int DEF_STYLE_RES = R.style.MainDrawer;
@@ -92,7 +93,7 @@ public class MainDrawer extends NavigationView {
             intent.putExtra("select", "changelog");
             activity.startActivity(intent);
         } else if (id == R.id.system_settings) {
-            Intent intent = new Intent(activity, SystemSettings.class);
+            Intent intent = new Intent(activity, SystemSettingsActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
             activity.startActivityForResult(intent, 107);
         } else if (id == R.id.program_info) {
@@ -104,7 +105,17 @@ public class MainDrawer extends NavigationView {
             intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
             activity.startActivity(intent);
         } else if (id == R.id.create_release_keystore) {
+          
             Intent intent = new Intent(activity, NewKeyStoreActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            activity.startActivity(intent);
+        }
+    }
+    
+    private void initializeTrindadeWareItens(@IdRes id) {
+        Activity activity = unwrap(getContext());
+        if (id == R.id.mod_settings) {
+            Intent intent = new Intent(activity, ModSettingsActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
             activity.startActivity(intent);
         }
