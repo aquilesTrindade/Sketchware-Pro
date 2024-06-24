@@ -56,7 +56,6 @@ fun PreferenceLayout(
                     maxLines = 1
                 )
             }
-            Spacer(modifier = Modifier.weight(1f))
         }
     }
 }
@@ -93,7 +92,6 @@ fun SwitchPreferenceLayout(
                     maxLines = 1
                 )
             }
-            Spacer(modifier = Modifier.weight(1f))
             Switch(
                 checked = switchState,
                 onCheckedChange = { isChecked ->

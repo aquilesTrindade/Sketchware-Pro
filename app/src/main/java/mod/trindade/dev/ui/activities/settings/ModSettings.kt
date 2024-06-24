@@ -169,10 +169,9 @@ class ModSettings : ComponentActivity() {
             topAppBarLarge(
                 title = "Mod Settings"
             )
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(8.dp)
+            LazyColumn(
+               modifier = Modifier.
+                   padding(vertical = 4.dp)
             ) {
                 switchPreferences.forEach { preference ->
                     SwitchPreferenceLayout(
