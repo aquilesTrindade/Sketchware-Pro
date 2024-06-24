@@ -170,27 +170,29 @@ class ModSettings : ComponentActivity() {
                 title = "Mod Settings"
             )
             LazyColumn(
-               modifier = Modifier.
-                   padding(vertical = 4.dp)
+                modifier = Modifier
+                    .padding(vertical = 4.dp)
             ) {
-                switchPreferences.forEach { preference ->
-                    SwitchPreferenceLayout(
-                        name = preference.preference_name,
-                        description = preference.preference_description,
-                        id = preference.preference_id,
-                        default = preference.preference_default_value,
-                        onChange = preference.preference_change_status
-                    )
-                }
-
-                textPreferences.forEach { preference ->
-                    PreferenceLayout(
-                        name = preference.preference_name,
-                        description = preference.preference_description,
-                        id = preference.preference_id,
-                        onPreferenceClick = preference.preference_click
-                    )
-                }
+               items(switchPreferences.size) { index ->
+                   val preference = switchPreferences[index]
+                   SwitchPreferenceLayout(
+                       name = preference.preference_name,
+                       description = preference.preference_description,
+                       id = preference.preference_id,
+                       default = preference.preference_default_value,
+                       onChange = preference.preference_change_status
+                   )
+               }
+               
+               items(textPreferences.size) { index ->
+                   val preference = textPreferences[index]
+                   PreferenceLayout(
+                       name = preference.preference_name,
+                       description = preference.preference_description,
+                       id = preference.preference_id,
+                       onPreferenceClick = preference.preference_click
+                   )
+               }
             }
         }
     }
