@@ -13,20 +13,60 @@ import androidx.compose.ui.platform.*
 import androidx.compose.ui.text.font.*
 import androidx.compose.ui.res.*
 
+data class Preference (
+    val preference_name: String,
+    val preference_description: String,
+    val preference_id: Int,
+    val preference_click: () -> Unit
+)
+
 data class SwitchPreference(
     val preference_name: String,
     val preference_description: String,
     val preference_id: Int,
     val preference_default_value: Boolean,
-    val onChange: (isChecked: Boolean) -> Unit
+    val preference_change_status: (isChecked: Boolean) -> Unit
 )
 
-data class Preference (
-    val preference_name: String,
-    val preference_description: String,
-    val preference_id: Int,
-    val onClick: () -> Unit
-)    
+@Composable
+fun PreferenceLayout(
+    name: String,
+    description: String,
+    id: Int,
+    onPreferenceClick: () -> Unit
+) {
+    var switchState by remember { mutableStateOf(default) }
+
+    Column(
+        modifier = Modifier.padding(5.dp),
+        onClick = {
+           onPreferenceClick()
+        }
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 8.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Column {
+                Text(
+                    text = name,
+                    style = MaterialTheme.typography.bodyMedium,
+                    fontWeight = FontWeight.Bold,
+                    maxLines = 1
+                )
+                Text(
+                    text = description,
+                    style = MaterialTheme.typography.bodySmall,
+                    maxLines = 1
+                )
+            }
+            Spacer(modifier = Modifier.weight(1f))
+        }
+    }
+}
+
 @Composable
 fun SwitchPreferenceLayout(
     name: String,
