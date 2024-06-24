@@ -25,7 +25,7 @@ data class SwitchPreference(
     val preference_description: String,
     val preference_id: Int,
     val preference_default_value: Boolean,
-    val preference_change_status: (isChecked: Boolean) -> Unit
+    val preference_change: (isChecked: Boolean) -> Unit
 )
 
 @Composable
@@ -35,13 +35,13 @@ fun PreferenceLayout(
     id: Int,
     onPreferenceClick: () -> Unit
 ) {
-    var switchState by remember { mutableStateOf(default) }
-
+    
     Column(
-        modifier = Modifier.padding(5.dp),
-        onClick = {
-           onPreferenceClick()
-        }
+        modifier = Modifier
+            .padding(5.dp)
+            .clickable= {
+                onPreferenceClick()
+            }
     ) {
         Row(
             modifier = Modifier

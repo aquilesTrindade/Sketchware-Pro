@@ -56,7 +56,7 @@ class SystemSettings: ComponentActivity() {
                 preference_description = stringResource(R.string.system_settings_description_setting_vibration),
                 preference_id = 0,
                 preference_default_value = sharedPreferences.getBoolean("P12I0", true),
-                onChange = { isChecked ->
+                preference_change = { isChecked ->
                     sharedPreferences.edit().putBoolean("P12I0", isChecked).apply()
                 }
             ),
@@ -65,7 +65,7 @@ class SystemSettings: ComponentActivity() {
                 preference_description = stringResource(R.string.system_settings_description_automatically_save),
                 preference_id = 2,
                 preference_default_value = sharedPreferences.getBoolean("P12I2", false),
-                onChange = { isChecked ->
+                preference_change = { isChecked ->
                     sharedPreferences.edit().putBoolean("P12I1", isChecked).apply()
                 }
             )
