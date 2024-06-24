@@ -41,6 +41,9 @@ class SystemSettings : ComponentActivity() {
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
                     content = {
+                        topAppBarLarge(
+                            title = "System Settings"
+                        )    
                         Content()
                     }
                 )
