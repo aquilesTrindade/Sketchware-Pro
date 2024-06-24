@@ -1,29 +1,17 @@
 package mod.trindade.dev.ui.activities.settings
-import android.*
-import android.os.*
-import android.content.*
 
-import androidx.activity.*
-import androidx.navigation.*
-import androidx.compose.ui.*
-import androidx.compose.ui.unit.*
-import androidx.compose.ui.platform.*
-import androidx.compose.ui.draw.*
-import androidx.compose.ui.res.*
-import androidx.activity.compose.*
-import androidx.compose.runtime.*
-import androidx.compose.ui.layout.*
-import androidx.compose.material3.*
-import androidx.navigation.compose.*
-import androidx.compose.foundation.*
-import androidx.compose.ui.graphics.*
-import androidx.compose.ui.text.input.*
-import androidx.compose.material.icons.*
-import androidx.compose.foundation.lazy.*
-import androidx.compose.foundation.shape.*
+import android.os.Bundle
+
+import android.content.Context
+import android.content.SharedPreferences
+
+import androidx.activity.ComponentActivity
+
 import androidx.compose.foundation.layout.*
-import androidx.compose.ui.text.font.*
-import androidx.compose.ui.res.*
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 
 import mod.trindade.dev.ui.toolbar.*
 import mod.trindade.dev.ui.theme.*
@@ -56,7 +44,7 @@ class ModSettings : ComponentActivity() {
                 preference_id = 1,
                 preference_default_value = false,
                 preference_change_status = { isChecked ->
-                    
+                    sharedPreferences.edit().putBoolean("built_in_blocks", isChecked).apply()
                 }
             ),
             SwitchPreference(
@@ -65,7 +53,7 @@ class ModSettings : ComponentActivity() {
                 preference_id = 2,
                 preference_default_value = false,
                 preference_change_status = { isChecked ->
-                    
+                    sharedPreferences.edit().putBoolean("show_all_variable_blocks", isChecked).apply()
                 }
             ),
             SwitchPreference(
@@ -74,7 +62,7 @@ class ModSettings : ComponentActivity() {
                 preference_id = 3,
                 preference_default_value = false,
                 preference_change_status = { isChecked ->
-                    
+                    sharedPreferences.edit().putBoolean("show_all_blocks_of_palettes", isChecked).apply()
                 }
             ),
             SwitchPreference(
@@ -83,7 +71,7 @@ class ModSettings : ComponentActivity() {
                 preference_id = 4,
                 preference_default_value = false,
                 preference_change_status = { isChecked ->
-                    
+                    sharedPreferences.edit().putBoolean("use_legacy_code_editor", isChecked).apply()
                 }
             ),
             SwitchPreference(
@@ -100,6 +88,7 @@ class ModSettings : ComponentActivity() {
                         //     }
                         // }
                     }
+                    sharedPreferences.edit().putBoolean("install_projects_with_root_access", isChecked).apply()
                 }
             ),
             SwitchPreference(
@@ -108,7 +97,7 @@ class ModSettings : ComponentActivity() {
                 preference_id = 6,
                 preference_default_value = false,
                 preference_change_status = { isChecked ->
-                    
+                    sharedPreferences.edit().putBoolean("launch_projects_after_installing", isChecked).apply()
                 }
             ),
             SwitchPreference(
@@ -117,7 +106,7 @@ class ModSettings : ComponentActivity() {
                 preference_id = 7,
                 preference_default_value = false,
                 preference_change_status = { isChecked ->
-                    
+                    sharedPreferences.edit().putBoolean("use_new_version_control", isChecked).apply()
                 }
             ),
             SwitchPreference(
@@ -126,7 +115,7 @@ class ModSettings : ComponentActivity() {
                 preference_id = 8,
                 preference_default_value = false,
                 preference_change_status = { isChecked ->
-                    
+                    sharedPreferences.edit().putBoolean("enable_block_text_input_highlighting", isChecked).apply()
                 }
             )
         )

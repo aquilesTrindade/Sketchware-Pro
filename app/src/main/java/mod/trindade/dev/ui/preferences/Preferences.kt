@@ -1,19 +1,14 @@
 package mod.trindade.dev.ui.preferences
 
-import android.content.*
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.*
-import androidx.compose.material.icons.*
-import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.*
 import androidx.compose.ui.unit.*
-import androidx.compose.ui.platform.*
 import androidx.compose.ui.text.font.*
-import androidx.compose.ui.res.*
 
-data class Preference (
+data class Preference(
     val preference_name: String,
     val preference_description: String,
     val preference_id: Int,
@@ -25,7 +20,7 @@ data class SwitchPreference(
     val preference_description: String,
     val preference_id: Int,
     val preference_default_value: Boolean,
-    val preference_change: (isChecked: Boolean) -> Unit
+    val preference_change_status: (isChecked: Boolean) -> Unit
 )
 
 @Composable
@@ -35,11 +30,10 @@ fun PreferenceLayout(
     id: Int,
     onPreferenceClick: () -> Unit
 ) {
-    
     Column(
         modifier = Modifier
             .padding(5.dp)
-            .clickable= {
+            .clickable {
                 onPreferenceClick()
             }
     ) {
